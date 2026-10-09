@@ -137,6 +137,39 @@
     .callout h3 { padding-right: 3rem; font: 700 2.2rem/1.1 var(--display); }
     .callout .primary-link { margin-top: 1rem; background: var(--paper); color: var(--ink); }
     .callout .primary-link:hover { background: var(--cyan); }
+    .contact-email { color: inherit; text-underline-offset: .2em; font-weight: 800; overflow-wrap: anywhere; }
+    .contact-email:hover, .contact-email:focus-visible { color: var(--cyan); }
+    .guidelines { background: var(--paper); color: var(--ink); }
+    .guideline-intro { display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(2rem, 6vw, 6rem); align-items: end; margin-bottom: 3.5rem; }
+    .guideline-intro h2 { max-width: 760px; }
+    .guideline-note { margin: 0; color: var(--muted); max-width: 680px; }
+    .format-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+    .format-card { min-height: 310px; padding: 1.5rem; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); display: flex; flex-direction: column; }
+    .format-card .format-no { color: var(--red); font-size: .72rem; font-weight: 800; letter-spacing: .12em; }
+    .format-card h3 { margin: 2.3rem 0 .9rem; font: 700 1.65rem/1.12 var(--display); }
+    .format-card p { color: var(--muted); font-size: .9rem; }
+    .format-limits { margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .78rem; font-weight: 700; }
+    .language-requirements { display: grid; grid-template-columns: 1fr 1fr; margin-top: 4rem; border: 1px solid var(--ink); }
+    .language-panel { padding: clamp(2rem, 4vw, 3.5rem); }
+    .language-panel + .language-panel { border-left: 1px solid var(--ink); background: #e8e1d3; }
+    .language-panel h3 { margin: .4rem 0 1.5rem; font: 700 clamp(2rem, 3.5vw, 3.4rem)/1.05 var(--display); }
+    .rule-list { margin: 0; padding: 0; list-style: none; }
+    .rule-list li { position: relative; padding: 1rem 0 1rem 1.5rem; border-top: 1px solid var(--line); }
+    .rule-list li::before { content: ""; position: absolute; left: 0; top: 1.6rem; width: 7px; height: 7px; background: var(--red); border-radius: 50%; }
+    .standards-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 4rem; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+    .standard-card { padding: 1.7rem; min-height: 320px; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+    .standard-card h3 { margin: 3rem 0 1rem; font: 700 1.75rem/1.12 var(--display); }
+    .standard-card p { color: var(--muted); }
+    .process { margin-top: 4rem; display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(2rem, 6vw, 6rem); }
+    .process h3 { font: 700 clamp(2.1rem, 4vw, 4rem)/1.05 var(--display); margin: 0; }
+    .process-steps { counter-reset: process; }
+    .process-step { counter-increment: process; display: grid; grid-template-columns: 52px 1fr; gap: 1rem; padding: 1.2rem 0; border-top: 1px solid var(--ink); }
+    .process-step::before { content: "0" counter(process); color: var(--red); font-weight: 800; }
+    .process-step strong { display: block; margin-bottom: .3rem; }
+    .process-step span { color: var(--muted); font-size: .9rem; }
+    .submission-status { margin-top: 4rem; display: flex; justify-content: space-between; gap: 2rem; align-items: center; padding: 1.6rem; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); }
+    .submission-status p { margin: 0; max-width: 760px; }
+    .status-pill { flex: none; padding: .55rem .8rem; background: var(--red); color: white; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
     footer { padding: 3rem 0; background: var(--ink); color: var(--paper); border-top: 1px solid rgba(245,240,228,.28); }
     .footer-grid { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 2rem; }
     .footer-brand { font: 700 1.55rem/1 var(--display); letter-spacing: .08em; }
@@ -158,7 +191,7 @@
       .nav-wrap.open { display: block; }
       .nav { flex-direction: column; align-items: stretch; gap: 0; padding: .5rem 0 1rem; }
       .nav a { border-bottom: 1px solid var(--line); }
-      .hero-grid, .lead-story, .section-head, .manifesto-grid, .submission-grid { grid-template-columns: 1fr; }
+      .hero-grid, .lead-story, .section-head, .manifesto-grid, .submission-grid, .guideline-intro, .process { grid-template-columns: 1fr; }
       .hero-grid { min-height: 0; }
       .hero-copy { padding-right: 0; min-height: 560px; }
       .hero-art { min-height: 620px; }
@@ -167,6 +200,9 @@
       .department-card { min-height: 360px; }
       .article-card, .article-card.wide { grid-column: span 6; }
       .manifesto-copy { margin-left: 0; }
+      .format-grid { grid-template-columns: 1fr 1fr; }
+      .standards-grid { grid-template-columns: 1fr; }
+      .standard-card { min-height: 0; }
     }
     @media (max-width: 600px) {
       .container { width: min(100% - 24px, 520px); }
@@ -183,6 +219,10 @@
       .department-card { min-height: 340px; }
       .articles-grid { grid-template-columns: 1fr; }
       .article-card, .article-card.wide { grid-column: auto; min-height: 340px; }
+      .format-grid, .language-requirements { grid-template-columns: 1fr; }
+      .language-panel + .language-panel { border-left: 0; border-top: 1px solid var(--ink); }
+      .format-card { min-height: 280px; }
+      .submission-status { align-items: flex-start; flex-direction: column; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-nav { flex-wrap: wrap; }
     }
@@ -208,7 +248,7 @@
         <a href="#departments" data-zh="四大板块" data-en="Departments">四大板块</a>
         <a href="#articles" data-zh="最新文章" data-en="Latest">最新文章</a>
         <a href="#about" data-zh="关于我们" data-en="About">关于我们</a>
-        <a href="#submissions" data-zh="投稿" data-en="Submissions">投稿</a>
+        <a href="#submissions" data-zh="投稿指南" data-en="Submissions">投稿指南</a>
       </nav>
     </div>
   </header>
@@ -317,13 +357,47 @@
     <section class="section submissions" id="submissions">
       <div class="container submission-grid">
         <div><span class="kicker" style="color:#56c9e8" data-zh="加入讨论" data-en="Join the Debate">加入讨论</span><h2 data-zh="把你的问题，带到更大的世界" data-en="Take your question to a wider world">把你的问题，带到更大的世界</h2><ol class="submission-list"><li><span data-zh="短评 800–1,200 字：回应一个正在发生的公共议题。" data-en="Commentary, 800–1,200 words: respond to a live public question.">短评 800–1,200 字：回应一个正在发生的公共议题。</span></li><li><span data-zh="长文 2,000–4,000 字：以清晰论证解释一个结构性问题。" data-en="Long-form, 2,000–4,000 words: explain a structural question through clear argument.">长文 2,000–4,000 字：以清晰论证解释一个结构性问题。</span></li><li><span data-zh="书评或对谈：把一本书、一个人物或一场争论放回时代语境。" data-en="Reviews or interviews: place a book, person or debate in its historical moment.">书评或对谈：把一本书、一个人物或一场争论放回时代语境。</span></li></ol></div>
-        <aside class="callout"><p class="article-meta" style="color:#56c9e8" data-zh="创刊号征稿" data-en="Inaugural Call for Pitches">创刊号征稿</p><h3 data-zh="主题：世界的重写" data-en="Theme: Rewriting the World">主题：世界的重写</h3><p data-zh="我们尤其欢迎跨地区、跨学科以及来自青年作者第一手经验的稿件。投稿通道将在创刊筹备完成后开放。" data-en="We especially welcome cross-regional, interdisciplinary pitches and writing grounded in young authors’ first-hand experience. Submissions will open after launch preparations are complete.">我们尤其欢迎跨地区、跨学科以及来自青年作者第一手经验的稿件。投稿通道将在创刊筹备完成后开放。</p><a class="primary-link" href="#departments" data-zh="查看选题方向" data-en="Explore our themes">查看选题方向</a></aside>
+        <aside class="callout"><p class="article-meta" style="color:#56c9e8" data-zh="创刊号征稿" data-en="Inaugural Call for Pitches">创刊号征稿</p><h3 data-zh="主题：世界的重写" data-en="Theme: Rewriting the World">主题：世界的重写</h3><p data-zh="我们尤其欢迎跨地区、跨学科以及来自青年作者第一手经验的稿件。可提交完整稿件，也可先发送两至三句话的选题构想。" data-en="We especially welcome cross-regional, interdisciplinary pitches and writing grounded in young authors’ first-hand experience. You may send a complete draft or begin with a two-to-three-sentence pitch.">我们尤其欢迎跨地区、跨学科以及来自青年作者第一手经验的稿件。可提交完整稿件，也可先发送两至三句话的选题构想。</p><p><span data-zh="投稿与咨询：" data-en="Submissions and enquiries: ">投稿与咨询：</span><a class="contact-email" href="mailto:sduasgg2025920@163.com">sduasgg2025920@163.com</a></p><a class="primary-link" href="#guidelines" data-zh="阅读完整指南" data-en="Read the full guide">阅读完整指南</a></aside>
+      </div>
+    </section>
+
+    <section class="section guidelines" id="guidelines">
+      <div class="container">
+        <div class="guideline-intro">
+          <div><span class="kicker" data-zh="投稿指南" data-en="Submission Guide">投稿指南</span><h2 data-zh="清晰、有据，也让人愿意读下去" data-en="Rigorous, readable, worth debating">清晰、有据，也让人愿意读下去</h2></div>
+          <p class="guideline-note" data-zh="我们寻找观点明确、论证扎实、面向非专业读者的公共写作。请不要直接提交未经改写的课程论文或学位论文；复杂概念应被解释，而不是被术语遮蔽。中英文稿件均可投稿，采用同一编辑标准。" data-en="We seek public writing with a clear argument, sound evidence and an accessible voice. Please do not submit unadapted coursework or dissertations: complex ideas should be explained, not hidden behind jargon. Chinese and English submissions are reviewed to the same editorial standard.">我们寻找观点明确、论证扎实、面向非专业读者的公共写作。请不要直接提交未经改写的课程论文或学位论文；复杂概念应被解释，而不是被术语遮蔽。中英文稿件均可投稿，采用同一编辑标准。</p>
+        </div>
+
+        <div class="format-grid">
+          <article class="format-card"><span class="format-no">01 · OPINION</span><h3 data-zh="时事短评" data-en="Commentary">时事短评</h3><p data-zh="围绕一个正在发生的公共议题提出鲜明、可论证的判断。避免新闻复述。" data-en="Make a distinct, defensible argument about a live public question. Avoid merely recapping the news.">围绕一个正在发生的公共议题提出鲜明、可论证的判断。避免新闻复述。</p><div class="format-limits"><span data-zh="中文 1,500–2,500 字" data-en="Chinese: 1,500–2,500 characters">中文 1,500–2,500 字</span><br><span data-zh="英文 800–1,200 词" data-en="English: 800–1,200 words">英文 800–1,200 词</span></div></article>
+          <article class="format-card"><span class="format-no">02 · LONG READ</span><h3 data-zh="深度评论" data-en="Long-form Essay">深度评论</h3><p data-zh="解释一个结构性问题，建立清晰的因果链条，并回应可能的反对意见。" data-en="Explain a structural problem, build a clear causal argument and address plausible objections.">解释一个结构性问题，建立清晰的因果链条，并回应可能的反对意见。</p><div class="format-limits"><span data-zh="中文 3,500–6,000 字" data-en="Chinese: 3,500–6,000 characters">中文 3,500–6,000 字</span><br><span data-zh="英文 1,500–2,500 词" data-en="English: 1,500–2,500 words">英文 1,500–2,500 词</span></div></article>
+          <article class="format-card"><span class="format-no">03 · REVIEW</span><h3 data-zh="书评与评论文章" data-en="Review Essay">书评与评论文章</h3><p data-zh="不止概述作品，更要说明它介入了什么争论、遗漏了什么问题。" data-en="Go beyond summary: show which debate the work enters, and what questions it leaves unresolved.">不止概述作品，更要说明它介入了什么争论、遗漏了什么问题。</p><div class="format-limits"><span data-zh="中文 2,500–4,500 字" data-en="Chinese: 2,500–4,500 characters">中文 2,500–4,500 字</span><br><span data-zh="英文 1,000–1,800 词" data-en="English: 1,000–1,800 words">英文 1,000–1,800 词</span></div></article>
+          <article class="format-card"><span class="format-no">04 · CONVERSATION</span><h3 data-zh="访谈与对谈" data-en="Interview">访谈与对谈</h3><p data-zh="呈现有推进、有追问的思想交流。投稿前请取得受访者同意。" data-en="Present an exchange that develops through genuine follow-up. Obtain the interviewee’s consent before submission.">呈现有推进、有追问的思想交流。投稿前请取得受访者同意。</p><div class="format-limits"><span data-zh="中文不超过 6,000 字" data-en="Chinese: up to 6,000 characters">中文不超过 6,000 字</span><br><span data-zh="英文不超过 2,500 词" data-en="English: up to 2,500 words">英文不超过 2,500 词</span></div></article>
+        </div>
+
+        <div class="language-requirements">
+          <article class="language-panel"><span class="kicker" data-zh="中文稿件" data-en="Chinese Manuscripts">中文稿件</span><h3 data-zh="中文写作要求" data-en="Writing in Chinese">中文写作要求</h3><ul class="rule-list"><li><span data-zh="接受简体或繁体中文；全文须保持字形与标点体系一致。" data-en="Simplified or Traditional Chinese is welcome; use one character and punctuation system consistently.">接受简体或繁体中文；全文须保持字形与标点体系一致。</span></li><li><span data-zh="标题建议不超过 24 个汉字；开篇应在约 150 字内明确问题与核心判断。" data-en="Keep the title to roughly 24 Chinese characters; establish the question and thesis within the opening 150 characters.">标题建议不超过 24 个汉字；开篇应在约 150 字内明确问题与核心判断。</span></li><li><span data-zh="首次出现的人名、机构或专有名词，视需要附原文或通行译名。" data-en="At first mention, include the original or standard translation of names, institutions and specialist terms where useful.">首次出现的人名、机构或专有名词，视需要附原文或通行译名。</span></li><li><span data-zh="避免堆叠成语、口号和无解释的学术术语；优先使用具体、主动的句子。" data-en="Avoid slogans, ornamental idioms and unexplained academic terminology; prefer concrete, active sentences.">避免堆叠成语、口号和无解释的学术术语；优先使用具体、主动的句子。</span></li></ul></article>
+          <article class="language-panel"><span class="kicker" data-zh="英文稿件" data-en="English Manuscripts">英文稿件</span><h3 data-zh="英文写作要求" data-en="Writing in English">英文写作要求</h3><ul class="rule-list"><li><span data-zh="英式或美式英语均可，但拼写、日期和标点须全文一致。" data-en="British or American English is welcome, but spelling, dates and punctuation must remain consistent throughout.">英式或美式英语均可，但拼写、日期和标点须全文一致。</span></li><li><span data-zh="使用句首式标题大小写；导语应在约 100 词内提出问题和核心论点。" data-en="Use sentence case for titles and establish the question and central claim within roughly the first 100 words.">使用句首式标题大小写；导语应在约 100 词内提出问题和核心论点。</span></li><li><span data-zh="非英语姓名和概念可在首次出现时保留原文，并提供简短说明。" data-en="Non-English names and concepts may retain their original form at first mention, with a brief explanation where needed.">非英语姓名和概念可在首次出现时保留原文，并提供简短说明。</span></li><li><span data-zh="面向国际读者写作，不默认读者熟悉某一国家的缩写、制度或政治语境。" data-en="Write for an international audience; do not assume familiarity with one country’s acronyms, institutions or political context.">面向国际读者写作，不默认读者熟悉某一国家的缩写、制度或政治语境。</span></li></ul></article>
+        </div>
+
+        <div class="standards-grid">
+          <article class="standard-card"><span class="format-no">A · SOURCES</span><h3 data-zh="来源与引用" data-en="Sources & citations">来源与引用</h3><p data-zh="对事实、数据和直接引语提供来源。正文使用描述性文字链接至报刊、学术论文 DOI、机构报告或图书出版页；一般不使用脚注、尾注或作者—年份式括注。" data-en="Source factual claims, data and direct quotations. Link descriptive words in the text to reputable reporting, article DOIs, institutional reports or publisher pages. We generally do not use footnotes, endnotes or author–date citations.">对事实、数据和直接引语提供来源。正文使用描述性文字链接至报刊、学术论文 DOI、机构报告或图书出版页；一般不使用脚注、尾注或作者—年份式括注。</p></article>
+          <article class="standard-card"><span class="format-no">B · ORIGINALITY</span><h3 data-zh="原创与披露" data-en="Originality & disclosure">原创与披露</h3><p data-zh="稿件应为作者原创，且未在其他平台同步审理。引用和改写必须清楚标明来源；涉及资助、任职、倡议组织或其他潜在利益冲突时，请主动披露。" data-en="Submissions must be original and not under simultaneous consideration elsewhere. Quotations and paraphrases require clear attribution. Disclose funding, employment, advocacy roles or other potential conflicts of interest.">稿件应为作者原创，且未在其他平台同步审理。引用和改写必须清楚标明来源；涉及资助、任职、倡议组织或其他潜在利益冲突时，请主动披露。</p></article>
+          <article class="standard-card"><span class="format-no">C · MATERIALS</span><h3 data-zh="提交材料" data-en="What to send">提交材料</h3><p data-zh="请提交可编辑的 DOCX 文件或共享文档链接，并附：作者姓名、80–120 字中文简介或 50–80 词英文简介、拟投板块、联系方式，以及图片来源或使用许可。请勿只发送 PDF。" data-en="Send an editable DOCX file or shared-document link, plus your name, a bio of 80–120 Chinese characters or 50–80 English words, proposed department, contact details, and image credits or permissions. Please do not submit PDF only.">请提交可编辑的 DOCX 文件或共享文档链接，并附：作者姓名、80–120 字中文简介或 50–80 词英文简介、拟投板块、联系方式，以及图片来源或使用许可。请勿只发送 PDF。</p></article>
+        </div>
+
+        <div class="process">
+          <h3 data-zh="从投稿到发表" data-en="From pitch to publication">从投稿到发表</h3>
+          <div class="process-steps"><div class="process-step"><div><strong data-zh="确认收稿" data-en="Acknowledgement">确认收稿</strong><span data-zh="通常在三个工作日内确认材料是否完整。" data-en="We normally confirm within three working days that your materials are complete.">通常在三个工作日内确认材料是否完整。</span></div></div><div class="process-step"><div><strong data-zh="初审" data-en="First decision">初审</strong><span data-zh="编辑部通常在十四日内给出采用、修改或不采用的决定。" data-en="The editorial team normally responds within fourteen days with accept, revise or decline.">编辑部通常在十四日内给出采用、修改或不采用的决定。</span></div></div><div class="process-step"><div><strong data-zh="共同编辑" data-en="Collaborative edit">共同编辑</strong><span data-zh="入选稿件通常经历一至两轮结构、事实与语言编辑。" data-en="Selected pieces usually go through one or two rounds of structural, factual and language editing.">入选稿件通常经历一至两轮结构、事实与语言编辑。</span></div></div><div class="process-step"><div><strong data-zh="作者确认" data-en="Author approval">作者确认</strong><span data-zh="重要修改将在发表前交由作者确认；编辑部保留标题与版式调整权。" data-en="Authors approve substantive changes before publication; editors retain discretion over headlines and presentation.">重要修改将在发表前交由作者确认；编辑部保留标题与版式调整权。</span></div></div></div>
+        </div>
+
+        <div class="submission-status"><p><span data-zh="完整稿件、选题提案与投稿咨询请发送至 " data-en="Send complete drafts, pitches and submission enquiries to ">完整稿件、选题提案与投稿咨询请发送至 </span><a class="contact-email" href="mailto:sduasgg2025920@163.com">sduasgg2025920@163.com</a><span data-zh="。正式截止日期将在创刊号征稿公告中公布。" data-en=". The formal deadline will be announced with the inaugural call.">。正式截止日期将在创刊号征稿公告中公布。</span></p><span class="status-pill" data-zh="接受投稿" data-en="Now accepting submissions">接受投稿</span></div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container footer-grid"><div><div class="footer-brand">青年政治评论 · YPR</div><div class="footer-copy" data-zh="以青年的坐标，理解共同的世界。© 2026 青年政治评论。" data-en="Reading our shared world from a younger coordinate. © 2026 Youth Political Review.">以青年的坐标，理解共同的世界。© 2026 青年政治评论。</div></div><nav class="footer-nav" aria-label="页脚导航"><a href="#about" data-zh="关于" data-en="About">关于</a><a href="#submissions" data-zh="投稿" data-en="Submit">投稿</a><a href="#top" data-zh="返回顶部" data-en="Back to top">返回顶部</a></nav></div>
+    <div class="container footer-grid"><div><div class="footer-brand">青年政治评论 · YPR</div><div class="footer-copy" data-zh="以青年的坐标，理解共同的世界。© 2026 青年政治评论。" data-en="Reading our shared world from a younger coordinate. © 2026 Youth Political Review.">以青年的坐标，理解共同的世界。© 2026 青年政治评论。</div><div class="footer-copy"><span data-zh="联系编辑部：" data-en="Editorial contact: ">联系编辑部：</span><a class="contact-email" href="mailto:sduasgg2025920@163.com">sduasgg2025920@163.com</a></div></div><nav class="footer-nav" aria-label="页脚导航"><a href="#about" data-zh="关于" data-en="About">关于</a><a href="#submissions" data-zh="投稿" data-en="Submit">投稿</a><a href="#top" data-zh="返回顶部" data-en="Back to top">返回顶部</a></nav></div>
   </footer>
 
   <script>
