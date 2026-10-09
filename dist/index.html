@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="《青年政治评论》是一份面向全球青年读者的双语公共思想期刊，关注全球政治、全球经济、全球文明与全球治理。">
+  <meta name="theme-color" content="#071c2f">
+  <title>青年政治评论 · Youth Political Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600;700;900&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23071c2f'/%3E%3Ccircle cx='32' cy='32' r='19' fill='%23f04a2f'/%3E%3Cpath d='M13 38 51 19 36 51Z' fill='%23f6f0df'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink: #071c2f;
+      --paper: #f5f0e4;
+      --red: #f04a2f;
+      --blue: #1266d5;
+      --cyan: #56c9e8;
+      --line: rgba(7, 28, 47, .22);
+      --muted: #5e6870;
+      --display: "Noto Serif SC", "Source Serif 4", Georgia, serif;
+      --sans: Inter, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .22;
+      z-index: 10;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.11'/%3E%3C/svg%3E");
+      mix-blend-mode: multiply;
+    }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    button { font: inherit; }
+    .skip-link { position: fixed; left: 1rem; top: -5rem; z-index: 99; background: var(--paper); padding: .6rem 1rem; }
+    .skip-link:focus { top: 1rem; }
+    .container { width: min(1280px, calc(100% - 48px)); margin-inline: auto; }
+    .masthead { border-top: 6px solid var(--ink); border-bottom: 1px solid var(--ink); background: rgba(245,240,228,.94); }
+    .masthead-top { min-height: 88px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.5rem; }
+    .issue-meta, .header-actions { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; }
+    .issue-meta { display: flex; gap: .8rem; align-items: center; }
+    .issue-meta span:first-child { color: var(--red); }
+    .brand { text-align: center; text-decoration: none; line-height: 1; }
+    .brand-cn { font-family: var(--display); font-size: clamp(1.55rem, 3vw, 2.55rem); font-weight: 900; letter-spacing: .12em; white-space: nowrap; }
+    .brand-en { display: block; margin-top: .5rem; font-size: .64rem; letter-spacing: .32em; font-weight: 700; text-transform: uppercase; }
+    .header-actions { justify-self: end; display: flex; align-items: center; gap: .75rem; }
+    .lang-toggle, .menu-toggle {
+      color: var(--ink); background: transparent; border: 1px solid var(--ink); min-height: 42px; padding: .55rem .8rem; cursor: pointer; font-weight: 700;
+    }
+    .lang-toggle:hover, .lang-toggle:focus-visible, .menu-toggle:hover, .menu-toggle:focus-visible { background: var(--ink); color: var(--paper); outline: none; }
+    .menu-toggle { display: none; }
+    .nav-wrap { border-top: 1px solid var(--line); }
+    .nav { min-height: 52px; display: flex; justify-content: center; align-items: center; gap: clamp(1rem, 3vw, 3rem); }
+    .nav a { position: relative; text-decoration: none; font-size: .83rem; font-weight: 700; letter-spacing: .08em; padding: 1rem .15rem; }
+    .nav a::after { content: ""; position: absolute; height: 3px; left: 0; right: 100%; bottom: 0; background: var(--red); transition: right .2s ease; }
+    .nav a:hover::after, .nav a:focus-visible::after { right: 0; }
+    .hero { border-bottom: 1px solid var(--ink); }
+    .hero-grid { min-height: min(760px, calc(100vh - 147px)); display: grid; grid-template-columns: 1.12fr .88fr; }
+    .hero-copy { padding: clamp(3rem, 7vw, 7rem) clamp(2rem, 5vw, 5rem) 3.5rem 0; display: flex; flex-direction: column; justify-content: space-between; }
+    .eyebrow { margin: 0 0 1.5rem; display: flex; align-items: center; gap: .7rem; color: var(--red); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 800; }
+    .eyebrow::before { content: ""; width: 24px; height: 2px; background: currentColor; }
+    h1, h2, h3, p { margin-top: 0; }
+    .hero h1 { max-width: 880px; margin-bottom: 1.5rem; font: 900 clamp(3.5rem, 7.6vw, 8.6rem)/.92 var(--display); letter-spacing: -.06em; }
+    .hero-dek { max-width: 650px; color: #273b4a; font: 500 clamp(1.15rem, 1.6vw, 1.45rem)/1.65 var(--display); }
+    .hero-bottom { margin-top: 3rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .primary-link { display: inline-flex; align-items: center; min-height: 50px; background: var(--red); color: white; padding: .8rem 1.25rem; text-decoration: none; font-weight: 800; }
+    .primary-link:hover, .primary-link:focus-visible { background: var(--ink); }
+    .read-time { color: var(--muted); font-size: .83rem; }
+    .hero-art { position: relative; min-height: 580px; overflow: hidden; background: var(--ink); }
+    .hero-art img { width: 100%; height: 100%; object-fit: cover; }
+    .cover-label { position: absolute; inset: auto 1.4rem 1.4rem auto; width: 175px; padding: 1rem; color: var(--paper); background: var(--ink); border-left: 4px solid var(--red); }
+    .cover-label small { display: block; font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; }
+    .cover-label strong { display: block; margin-top: .35rem; font: 700 1.1rem/1.25 var(--display); }
+    .ticker { background: var(--ink); color: var(--paper); overflow: hidden; white-space: nowrap; border-bottom: 1px solid var(--ink); }
+    .ticker-track { display: inline-block; padding: .75rem 0; animation: ticker 28s linear infinite; font-size: .75rem; letter-spacing: .09em; text-transform: uppercase; }
+    .ticker-track span { color: var(--cyan); margin: 0 1.2rem; }
+    @keyframes ticker { to { transform: translateX(-50%); } }
+    .section { padding: clamp(4.5rem, 8vw, 8rem) 0; border-bottom: 1px solid var(--ink); }
+    .section-head { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; margin-bottom: 3.5rem; align-items: end; }
+    .kicker { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--red); font-weight: 800; }
+    .section h2 { margin: 0; font: 800 clamp(2.4rem, 5vw, 5.4rem)/1 var(--display); letter-spacing: -.045em; }
+    .section-intro { max-width: 700px; margin: 0 0 .4rem auto; color: var(--muted); }
+    .lead-story { display: grid; grid-template-columns: 1.12fr .88fr; border: 1px solid var(--ink); }
+    .lead-visual { min-height: 360px; position: relative; background: var(--blue); overflow: hidden; }
+    .lead-visual::before, .lead-visual::after { content: ""; position: absolute; border-radius: 50%; }
+    .lead-visual::before { width: 420px; height: 420px; left: 18%; top: 18%; border: 54px solid var(--paper); }
+    .lead-visual::after { width: 190px; height: 190px; right: -20px; top: -20px; background: var(--red); }
+    .lead-lines { position: absolute; inset: 0; background: repeating-linear-gradient(115deg, transparent 0 22px, rgba(7,28,47,.35) 23px 25px); mix-blend-mode: multiply; }
+    .lead-content { padding: clamp(2rem, 5vw, 4.5rem); background: var(--paper); display: flex; flex-direction: column; justify-content: center; }
+    .article-meta { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--red); font-weight: 800; }
+    .lead-content h3 { margin: 1rem 0 1.25rem; font: 700 clamp(2rem, 3.6vw, 4rem)/1.07 var(--display); letter-spacing: -.035em; }
+    .lead-content p { color: var(--muted); margin-bottom: 1.7rem; }
+    .byline { margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--line); font-size: .8rem; font-weight: 700; }
+    .departments { background: #e8e1d3; }
+    .department-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+    .department-card { min-height: 430px; padding: 1.5rem; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); display: flex; flex-direction: column; position: relative; overflow: hidden; }
+    .department-card::before { content: attr(data-index); position: absolute; right: -.2rem; top: -.8rem; color: rgba(7,28,47,.08); font: 900 9rem/1 var(--display); }
+    .dept-icon { width: 48px; height: 48px; margin-bottom: 3.5rem; color: var(--ink); }
+    .department-card h3 { margin: 0 0 1rem; font: 700 2rem/1.12 var(--display); }
+    .department-card p { color: var(--muted); }
+    .dept-topics { margin-top: auto; padding-top: 1.2rem; border-top: 1px solid var(--line); font-size: .74rem; font-weight: 700; letter-spacing: .04em; }
+    .articles-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 0; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+    .article-card { grid-column: span 4; padding: 1.6rem; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); min-height: 390px; display: flex; flex-direction: column; background: var(--paper); transition: background .2s, color .2s; }
+    .article-card.wide { grid-column: span 8; background: var(--ink); color: var(--paper); }
+    .article-card:hover { background: var(--red); color: white; }
+    .article-card:hover .article-meta, .article-card:hover p, .article-card.wide p { color: inherit; opacity: .8; }
+    .article-no { font: 500 3rem/1 var(--display); opacity: .24; }
+    .article-card h3 { margin: auto 0 1rem; max-width: 620px; font: 700 clamp(1.55rem, 2.6vw, 2.8rem)/1.12 var(--display); }
+    .article-card p { color: var(--muted); }
+    .article-footer { border-top: 1px solid currentColor; padding-top: .9rem; font-size: .75rem; display: flex; justify-content: space-between; gap: 1rem; }
+    .manifesto { background: var(--red); color: white; }
+    .manifesto-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; }
+    .manifesto-quote { margin: 0; font: 700 clamp(2.2rem, 5vw, 5.3rem)/1.08 var(--display); letter-spacing: -.045em; }
+    .manifesto-copy { align-self: end; max-width: 680px; font-size: 1.05rem; }
+    .manifesto-copy p:last-child { margin-bottom: 0; }
+    .submissions { background: var(--ink); color: var(--paper); }
+    .submission-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(3rem, 8vw, 8rem); align-items: start; }
+    .submissions h2 { max-width: 750px; }
+    .submission-list { margin: 2rem 0 0; padding: 0; list-style: none; counter-reset: submissions; }
+    .submission-list li { counter-increment: submissions; display: grid; grid-template-columns: 44px 1fr; gap: 1rem; padding: 1.2rem 0; border-top: 1px solid rgba(245,240,228,.28); }
+    .submission-list li::before { content: "0" counter(submissions); color: var(--cyan); font-weight: 800; }
+    .callout { border: 1px solid rgba(245,240,228,.6); padding: 2rem; position: relative; }
+    .callout::before { content: ""; width: 36px; height: 36px; position: absolute; right: 1.3rem; top: 1.3rem; background: var(--red); border-radius: 50%; }
+    .callout h3 { padding-right: 3rem; font: 700 2.2rem/1.1 var(--display); }
+    .callout .primary-link { margin-top: 1rem; background: var(--paper); color: var(--ink); }
+    .callout .primary-link:hover { background: var(--cyan); }
+    footer { padding: 3rem 0; background: var(--ink); color: var(--paper); border-top: 1px solid rgba(245,240,228,.28); }
+    .footer-grid { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 2rem; }
+    .footer-brand { font: 700 1.55rem/1 var(--display); letter-spacing: .08em; }
+    .footer-copy { margin-top: .8rem; color: rgba(245,240,228,.65); font-size: .78rem; }
+    .footer-nav { display: flex; gap: 1.2rem; font-size: .78rem; }
+    .footer-nav a { text-decoration: none; }
+    .footer-nav a:hover { color: var(--cyan); }
+    :focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .ticker-track { animation: none; } }
+    @media (max-width: 900px) {
+      .container { width: min(100% - 32px, 720px); }
+      .masthead-top { grid-template-columns: 1fr auto; }
+      .issue-meta { display: none; }
+      .brand { text-align: left; }
+      .brand-cn { font-size: 1.45rem; }
+      .brand-en { font-size: .54rem; letter-spacing: .22em; }
+      .menu-toggle { display: inline-flex; align-items: center; }
+      .nav-wrap { display: none; }
+      .nav-wrap.open { display: block; }
+      .nav { flex-direction: column; align-items: stretch; gap: 0; padding: .5rem 0 1rem; }
+      .nav a { border-bottom: 1px solid var(--line); }
+      .hero-grid, .lead-story, .section-head, .manifesto-grid, .submission-grid { grid-template-columns: 1fr; }
+      .hero-grid { min-height: 0; }
+      .hero-copy { padding-right: 0; min-height: 560px; }
+      .hero-art { min-height: 620px; }
+      .section-intro { margin-left: 0; }
+      .department-grid { grid-template-columns: 1fr 1fr; }
+      .department-card { min-height: 360px; }
+      .article-card, .article-card.wide { grid-column: span 6; }
+      .manifesto-copy { margin-left: 0; }
+    }
+    @media (max-width: 600px) {
+      .container { width: min(100% - 24px, 520px); }
+      .masthead-top { min-height: 76px; gap: .6rem; }
+      .brand-cn { font-size: 1.22rem; letter-spacing: .06em; }
+      .brand-en { display: none; }
+      .header-actions { gap: .4rem; }
+      .lang-toggle, .menu-toggle { min-height: 40px; padding: .45rem .62rem; }
+      .hero-copy { min-height: 500px; padding-top: 3.8rem; }
+      .hero h1 { font-size: clamp(3.1rem, 15vw, 5rem); }
+      .hero-art { min-height: 500px; margin-inline: -12px; }
+      .section { padding: 4.5rem 0; }
+      .department-grid { grid-template-columns: 1fr; }
+      .department-card { min-height: 340px; }
+      .articles-grid { grid-template-columns: 1fr; }
+      .article-card, .article-card.wide { grid-column: auto; min-height: 340px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-nav { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-zh="跳至正文" data-en="Skip to content">跳至正文</a>
+  <header class="masthead">
+    <div class="container masthead-top">
+      <div class="issue-meta"><span data-zh="创刊号" data-en="Inaugural issue">创刊号</span><span>2026 · 01</span></div>
+      <a class="brand" href="#top" aria-label="青年政治评论首页">
+        <span class="brand-cn">青年政治评论</span>
+        <span class="brand-en">Youth Political Review</span>
+      </a>
+      <div class="header-actions">
+        <button class="lang-toggle" type="button" aria-label="Switch to English" aria-pressed="false"><span class="lang-current">中</span> / <span class="lang-other">EN</span></button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span data-zh="目录" data-en="Menu">目录</span></button>
+      </div>
+    </div>
+    <div class="nav-wrap" id="site-nav">
+      <nav class="container nav" aria-label="主要导航">
+        <a href="#latest" data-zh="本期专题" data-en="Current Issue">本期专题</a>
+        <a href="#departments" data-zh="四大板块" data-en="Departments">四大板块</a>
+        <a href="#articles" data-zh="最新文章" data-en="Latest">最新文章</a>
+        <a href="#about" data-zh="关于我们" data-en="About">关于我们</a>
+        <a href="#submissions" data-zh="投稿" data-en="Submissions">投稿</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div>
+            <p class="eyebrow" data-zh="创刊号专题 · 世界的重写" data-en="Inaugural Issue · Rewriting the World">创刊号专题 · 世界的重写</p>
+            <h1 data-zh="谁在定义我们的时代？" data-en="Who gets to define our time?">谁在定义我们的时代？</h1>
+            <p class="hero-dek" data-zh="当旧秩序松动、新技术重塑权力，青年不应只是时代的注脚。我们从政治、经济、文明与治理四个维度，重新追问世界如何运行。" data-en="As old orders loosen and new technologies recast power, young people should be more than a footnote to history. Across politics, economics, civilization and governance, we ask again how the world works.">当旧秩序松动、新技术重塑权力，青年不应只是时代的注脚。我们从政治、经济、文明与治理四个维度，重新追问世界如何运行。</p>
+          </div>
+          <div class="hero-bottom">
+            <a class="primary-link" href="#latest" data-zh="阅读本期专题" data-en="Explore the issue">阅读本期专题</a>
+            <span class="read-time" data-zh="8 篇原创评论 · 中英双语" data-en="8 original essays · Bilingual">8 篇原创评论 · 中英双语</span>
+          </div>
+        </div>
+        <figure class="hero-art">
+          <img src="assets/issue-01-cover.png" alt="由红色圆形、蓝色几何平面与经纬线构成的抽象世界图景">
+          <figcaption class="cover-label"><small>Issue 01 · 2026</small><strong data-zh="世界的重写" data-en="Rewriting the World">世界的重写</strong></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">YOUTH POLITICAL REVIEW <span>●</span> GLOBAL POLITICS <span>●</span> GLOBAL ECONOMY <span>●</span> GLOBAL CIVILIZATION <span>●</span> GLOBAL GOVERNANCE <span>●</span> YOUTH POLITICAL REVIEW <span>●</span> GLOBAL POLITICS <span>●</span> GLOBAL ECONOMY <span>●</span> GLOBAL CIVILIZATION <span>●</span> GLOBAL GOVERNANCE <span>●</span></div>
+    </div>
+
+    <section class="section" id="latest">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="kicker" data-zh="本期专题" data-en="Current Issue">本期专题</span><h2 data-zh="世界的重写" data-en="Rewriting the World">世界的重写</h2></div>
+          <p class="section-intro" data-zh="权力正在转移，财富正在重排，文明叙事重新碰撞，全球制度面临压力测试。我们关注变化背后的结构，也关心普通人如何理解并参与其中。" data-en="Power is shifting, wealth is being reordered, civilizational narratives are colliding anew, and global institutions face a stress test. We examine the structures behind change—and how ordinary people can understand and shape it.">权力正在转移，财富正在重排，文明叙事重新碰撞，全球制度面临压力测试。我们关注变化背后的结构，也关心普通人如何理解并参与其中。</p>
+        </div>
+        <article class="lead-story">
+          <div class="lead-visual" role="img" aria-label="红蓝几何圆环构成的抽象政治图景"><div class="lead-lines"></div></div>
+          <div class="lead-content">
+            <div class="article-meta" data-zh="卷首评论 · 全球政治" data-en="Editor’s Essay · Global Politics">卷首评论 · 全球政治</div>
+            <h3 data-zh="在失序年代，青年如何重新想象公共生活" data-en="Imagining public life in an age of disorder">在失序年代，青年如何重新想象公共生活</h3>
+            <p data-zh="政治并不只发生在议会与峰会。它存在于我们选择相信什么、与谁结盟，以及如何为尚未到来的共同世界承担责任。" data-en="Politics does not only happen in parliaments and summits. It lives in what we choose to believe, whom we stand with, and how we take responsibility for a shared world not yet built.">政治并不只发生在议会与峰会。它存在于我们选择相信什么、与谁结盟，以及如何为尚未到来的共同世界承担责任。</p>
+            <div class="byline" data-zh="本刊编辑部 · 12 分钟阅读" data-en="Editorial Desk · 12 min read">本刊编辑部 · 12 分钟阅读</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section departments" id="departments">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="kicker" data-zh="编辑架构" data-en="Editorial Framework">编辑架构</span><h2 data-zh="四种观看世界的方式" data-en="Four ways to read the world">四种观看世界的方式</h2></div>
+          <p class="section-intro" data-zh="四个板块彼此独立，又相互交叉。我们鼓励跨越学科与地域边界的写作，让复杂议题保持复杂，也保持可读。" data-en="Our four departments are distinct yet deliberately porous. We encourage writing across disciplines and regions—keeping complex questions complex, but never inaccessible.">四个板块彼此独立，又相互交叉。我们鼓励跨越学科与地域边界的写作，让复杂议题保持复杂，也保持可读。</p>
+        </div>
+        <div class="department-grid">
+          <article class="department-card" data-index="01">
+            <svg class="dept-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2"/><path d="M6 24h36M24 6c6 5 9 11 9 18s-3 13-9 18c-6-5-9-11-9-18s3-13 9-18Z" stroke="currentColor" stroke-width="2"/></svg>
+            <h3 data-zh="全球政治" data-en="Global Politics">全球政治</h3>
+            <p data-zh="追踪国家、社会与权力的重新组合，关注战争与和平、民主与秩序、身份与动员。" data-en="Tracking new configurations of states, societies and power—from war and peace to democracy, identity and political mobilization.">追踪国家、社会与权力的重新组合，关注战争与和平、民主与秩序、身份与动员。</p>
+            <div class="dept-topics" data-zh="国际关系 · 政治理论 · 区域研究" data-en="International affairs · Theory · Regions">国际关系 · 政治理论 · 区域研究</div>
+          </article>
+          <article class="department-card" data-index="02">
+            <svg class="dept-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M8 38V25h7v13M20 38V16h8v22M33 38V8h7v30M5 38h38" stroke="currentColor" stroke-width="2"/></svg>
+            <h3 data-zh="全球经济" data-en="Global Economy">全球经济</h3>
+            <p data-zh="审视增长、分配与技术变迁，理解资本、劳动和公共政策如何塑造每个人的机会。" data-en="Examining growth, distribution and technological change—and how capital, labor and public policy shape people’s chances.">审视增长、分配与技术变迁，理解资本、劳动和公共政策如何塑造每个人的机会。</p>
+            <div class="dept-topics" data-zh="政治经济学 · 产业转型 · 公共财政" data-en="Political economy · Industry · Public finance">政治经济学 · 产业转型 · 公共财政</div>
+          </article>
+          <article class="department-card" data-index="03">
+            <svg class="dept-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 7 7 16l17 9 17-9-17-9ZM11 22v14l13 7 13-7V22" stroke="currentColor" stroke-width="2"/></svg>
+            <h3 data-zh="全球文明" data-en="Global Civilization">全球文明</h3>
+            <p data-zh="讨论思想、历史与文化如何穿越边界，在差异中寻找理解，在传统与现代之间建立新联系。" data-en="Exploring how ideas, histories and cultures cross borders—seeking understanding through difference and new links between tradition and modernity.">讨论思想、历史与文化如何穿越边界，在差异中寻找理解，在传统与现代之间建立新联系。</p>
+            <div class="dept-topics" data-zh="思想史 · 宗教 · 文化批评" data-en="Intellectual history · Religion · Culture">思想史 · 宗教 · 文化批评</div>
+          </article>
+          <article class="department-card" data-index="04">
+            <svg class="dept-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="2"/><circle cx="10" cy="13" r="4" stroke="currentColor" stroke-width="2"/><circle cx="38" cy="13" r="4" stroke="currentColor" stroke-width="2"/><circle cx="10" cy="36" r="4" stroke="currentColor" stroke-width="2"/><circle cx="38" cy="36" r="4" stroke="currentColor" stroke-width="2"/><path d="m14 15 6 6m14-6-6 6m-14 13 6-6m14 6-6-6" stroke="currentColor" stroke-width="2"/></svg>
+            <h3 data-zh="全球治理" data-en="Global Governance">全球治理</h3>
+            <p data-zh="聚焦跨国问题与制度回应，从气候、科技到公共卫生，追问合作为何困难、又如何可能。" data-en="Focusing on transnational problems and institutional responses—from climate and technology to public health—and how cooperation becomes possible.">聚焦跨国问题与制度回应，从气候、科技到公共卫生，追问合作为何困难、又如何可能。</p>
+            <div class="dept-topics" data-zh="国际组织 · 气候治理 · 科技伦理" data-en="Institutions · Climate · Tech ethics">国际组织 · 气候治理 · 科技伦理</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="articles">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="kicker" data-zh="最新文章" data-en="Latest Essays">最新文章</span><h2 data-zh="观点，不止一种坐标" data-en="Ideas beyond one coordinate">观点，不止一种坐标</h2></div>
+          <p class="section-intro" data-zh="短评、长文、书评与对谈，共同构成一个开放而有分歧的思想现场。" data-en="Commentary, long-form essays, reviews and conversations create an open intellectual space—one where disagreement is welcome.">短评、长文、书评与对谈，共同构成一个开放而有分歧的思想现场。</p>
+        </div>
+        <div class="articles-grid">
+          <article class="article-card wide"><span class="article-no">01</span><div class="article-meta" data-zh="全球政治" data-en="Global Politics">全球政治</div><h3 data-zh="“中等强国时刻”之后：联盟政治的新语法" data-en="After the ‘middle power moment’: a new grammar of alliances">“中等强国时刻”之后：联盟政治的新语法</h3><p data-zh="当大国竞争挤压战略空间，中等国家能否从被动平衡走向主动塑造？" data-en="As great-power competition narrows room for maneuver, can middle powers move from balancing to shaping?">当大国竞争挤压战略空间，中等国家能否从被动平衡走向主动塑造？</p><div class="article-footer"><span data-zh="林予安" data-en="Lin Yu'an">林予安</span><span data-zh="10 分钟" data-en="10 min">10 分钟</span></div></article>
+          <article class="article-card"><span class="article-no">02</span><div class="article-meta" data-zh="全球经济" data-en="Global Economy">全球经济</div><h3 data-zh="绿色转型的账单，最终由谁支付？" data-en="Who ultimately pays for the green transition?">绿色转型的账单，最终由谁支付？</h3><p data-zh="从碳定价到产业补贴，气候政策也是一场分配政治。" data-en="From carbon prices to industrial subsidies, climate policy is also distributional politics.">从碳定价到产业补贴，气候政策也是一场分配政治。</p><div class="article-footer"><span>Maya Chen</span><span data-zh="8 分钟" data-en="8 min">8 分钟</span></div></article>
+          <article class="article-card"><span class="article-no">03</span><div class="article-meta" data-zh="全球文明" data-en="Global Civilization">全球文明</div><h3 data-zh="当记忆成为边界：博物馆里的国家叙事" data-en="When memory becomes a border: nations in the museum">当记忆成为边界：博物馆里的国家叙事</h3><p data-zh="展柜里的过去，如何参与塑造今天的“我们”。" data-en="How the past behind glass helps construct today’s idea of “us.”">展柜里的过去，如何参与塑造今天的“我们”。</p><div class="article-footer"><span data-zh="周迩" data-en="Zhou Er">周迩</span><span data-zh="7 分钟" data-en="7 min">7 分钟</span></div></article>
+          <article class="article-card"><span class="article-no">04</span><div class="article-meta" data-zh="全球治理" data-en="Global Governance">全球治理</div><h3 data-zh="算法越过国境，规则还追得上吗？" data-en="Algorithms cross borders. Can rules keep up?">算法越过国境，规则还追得上吗？</h3><p data-zh="全球人工智能治理不只需要共识，也需要可以执行的制度接口。" data-en="Global AI governance needs more than consensus; it needs institutions that can act.">全球人工智能治理不只需要共识，也需要可以执行的制度接口。</p><div class="article-footer"><span>Ravi Mehta</span><span data-zh="9 分钟" data-en="9 min">9 分钟</span></div></article>
+          <article class="article-card wide"><span class="article-no">05</span><div class="article-meta" data-zh="跨板块对谈" data-en="Cross-Department Conversation">跨板块对谈</div><h3 data-zh="增长、尊严与秩序：五位青年学者谈下一代全球化" data-en="Growth, dignity and order: five young scholars on the next globalization">增长、尊严与秩序：五位青年学者谈下一代全球化</h3><p data-zh="全球化并未终结，它正在失去旧名字，也在寻找新的社会契约。" data-en="Globalization has not ended. It is shedding its old name and searching for a new social contract.">全球化并未终结，它正在失去旧名字，也在寻找新的社会契约。</p><div class="article-footer"><span data-zh="青年圆桌" data-en="Youth Roundtable">青年圆桌</span><span data-zh="18 分钟" data-en="18 min">18 分钟</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section manifesto" id="about">
+      <div class="container manifesto-grid">
+        <div><span class="kicker" style="color:#071c2f" data-zh="我们的立场" data-en="Our Position">我们的立场</span></div>
+        <div><blockquote class="manifesto-quote" data-zh="不替青年发言，而是让青年进入公共世界的发言席。" data-en="We do not speak for young people. We make room for them to speak in public life.">不替青年发言，而是让青年进入公共世界的发言席。</blockquote><div class="manifesto-copy"><p data-zh="《青年政治评论》是一份独立、非党派、面向全球读者的中英双语期刊。我们相信，严肃思想无需故作艰深，分歧也不必通向敌意。" data-en="Youth Political Review is an independent, non-partisan bilingual journal for a global readership. We believe serious ideas need not be obscure, and disagreement need not become hostility.">《青年政治评论》是一份独立、非党派、面向全球读者的中英双语期刊。我们相信，严肃思想无需故作艰深，分歧也不必通向敌意。</p><p data-zh="我们发表论证清晰、证据充分、风格鲜明的评论与对谈，连接校园、社会与世界。" data-en="We publish clearly argued, well-evidenced and stylistically distinctive essays and conversations—connecting campuses, societies and the world.">我们发表论证清晰、证据充分、风格鲜明的评论与对谈，连接校园、社会与世界。</p></div></div>
+      </div>
+    </section>
+
+    <section class="section submissions" id="submissions">
+      <div class="container submission-grid">
+        <div><span class="kicker" style="color:#56c9e8" data-zh="加入讨论" data-en="Join the Debate">加入讨论</span><h2 data-zh="把你的问题，带到更大的世界" data-en="Take your question to a wider world">把你的问题，带到更大的世界</h2><ol class="submission-list"><li><span data-zh="短评 800–1,200 字：回应一个正在发生的公共议题。" data-en="Commentary, 800–1,200 words: respond to a live public question.">短评 800–1,200 字：回应一个正在发生的公共议题。</span></li><li><span data-zh="长文 2,000–4,000 字：以清晰论证解释一个结构性问题。" data-en="Long-form, 2,000–4,000 words: explain a structural question through clear argument.">长文 2,000–4,000 字：以清晰论证解释一个结构性问题。</span></li><li><span data-zh="书评或对谈：把一本书、一个人物或一场争论放回时代语境。" data-en="Reviews or interviews: place a book, person or debate in its historical moment.">书评或对谈：把一本书、一个人物或一场争论放回时代语境。</span></li></ol></div>
+        <aside class="callout"><p class="article-meta" style="color:#56c9e8" data-zh="创刊号征稿" data-en="Inaugural Call for Pitches">创刊号征稿</p><h3 data-zh="主题：世界的重写" data-en="Theme: Rewriting the World">主题：世界的重写</h3><p data-zh="我们尤其欢迎跨地区、跨学科以及来自青年作者第一手经验的稿件。投稿通道将在创刊筹备完成后开放。" data-en="We especially welcome cross-regional, interdisciplinary pitches and writing grounded in young authors’ first-hand experience. Submissions will open after launch preparations are complete.">我们尤其欢迎跨地区、跨学科以及来自青年作者第一手经验的稿件。投稿通道将在创刊筹备完成后开放。</p><a class="primary-link" href="#departments" data-zh="查看选题方向" data-en="Explore our themes">查看选题方向</a></aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid"><div><div class="footer-brand">青年政治评论 · YPR</div><div class="footer-copy" data-zh="以青年的坐标，理解共同的世界。© 2026 青年政治评论。" data-en="Reading our shared world from a younger coordinate. © 2026 Youth Political Review.">以青年的坐标，理解共同的世界。© 2026 青年政治评论。</div></div><nav class="footer-nav" aria-label="页脚导航"><a href="#about" data-zh="关于" data-en="About">关于</a><a href="#submissions" data-zh="投稿" data-en="Submit">投稿</a><a href="#top" data-zh="返回顶部" data-en="Back to top">返回顶部</a></nav></div>
+  </footer>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const langButton = document.querySelector('.lang-toggle');
+      const menuButton = document.querySelector('.menu-toggle');
+      const navWrap = document.querySelector('.nav-wrap');
+      const translatable = document.querySelectorAll('[data-zh][data-en]');
+      let language = localStorage.getItem('ypr-language') === 'en' ? 'en' : 'zh';
+
+      function applyLanguage(next) {
+        language = next;
+        root.lang = language === 'zh' ? 'zh-CN' : 'en';
+        document.title = language === 'zh' ? '青年政治评论 · Youth Political Review' : 'Youth Political Review · 青年政治评论';
+        translatable.forEach((el) => { el.textContent = el.dataset[language]; });
+        langButton.querySelector('.lang-current').textContent = language === 'zh' ? '中' : 'EN';
+        langButton.querySelector('.lang-other').textContent = language === 'zh' ? 'EN' : '中';
+        langButton.setAttribute('aria-label', language === 'zh' ? 'Switch to English' : '切换至中文');
+        langButton.setAttribute('aria-pressed', language === 'en' ? 'true' : 'false');
+        localStorage.setItem('ypr-language', language);
+      }
+
+      langButton.addEventListener('click', () => applyLanguage(language === 'zh' ? 'en' : 'zh'));
+      menuButton.addEventListener('click', () => {
+        const open = navWrap.classList.toggle('open');
+        menuButton.setAttribute('aria-expanded', String(open));
+      });
+      document.querySelectorAll('.nav a').forEach((link) => link.addEventListener('click', () => {
+        navWrap.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      }));
+      applyLanguage(language);
+    })();
+  </script>
+</body>
+</html>
